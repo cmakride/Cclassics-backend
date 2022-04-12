@@ -29,3 +29,16 @@ def show(id):
   classic = Classic.query.filter_by(id=id).first()
   classic_data = classic.serialize()
   return jsonify(classic=classic_data),200
+
+@classics.route('/<id>',methods=["DELETE"])
+@login_required
+def delete(id):
+  profile = read_token(request)
+  classic = Classic.query.filter_by(id=id).first()
+
+  if classic.profile_id != profile["id"]:
+    return 'Forbidden', 403
+  
+  db.session.delete(classic)
+  db.session.commit()
+  return jsonify(message="Success Deleted"),200
