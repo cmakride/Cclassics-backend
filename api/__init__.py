@@ -7,9 +7,11 @@ from config import Config
 # ============ Import Models ============
 from api.models.user import User
 from api.models.profile import Profile
+from api.models.classic import Classic
 
 # ============ Import Views ============
 from api.views.auth import auth
+from api.views.classics import classics
 
 cors = CORS()
 migrate = Migrate() 
@@ -24,7 +26,8 @@ def create_app(config):
   cors.init_app(app, supports_credentials=True, methods=list)
 
   # ============ Register Blueprints ============
-  app.register_blueprint(auth, url_prefix='/api/auth') 
+  app.register_blueprint(auth, url_prefix='/api/auth')
+  app.register_blueprint(classics, url_prefix='/api/classics') 
 
   return app
 
