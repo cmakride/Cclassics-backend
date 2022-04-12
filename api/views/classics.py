@@ -1,4 +1,5 @@
 import json
+import profile
 from flask import Blueprint, jsonify, request
 from api.middleware import login_required, read_token
 
@@ -29,6 +30,22 @@ def show(id):
   classic = Classic.query.filter_by(id=id).first()
   classic_data = classic.serialize()
   return jsonify(classic=classic_data),200
+
+@classics.route('/<id>',methods=["PUT"])
+@login_required
+def update(id):
+  data = request.get_json()
+  profile = read_token(request)
+  classic = Classic.query.filter_by(id=id).first()
+
+  if classic.profile_id != profile["id"]:
+    return 'Forbidden Fruit', 403
+  
+  for key in data:
+    setattr(classic,key,data[key])
+
+  db.session.commit()
+  return jsonify(classic.serialize()),200
 
 @classics.route('/<id>',methods=["DELETE"])
 @login_required
