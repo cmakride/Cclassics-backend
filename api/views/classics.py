@@ -23,3 +23,9 @@ def create():
 def index():
     classics = Classic.query.all()
     return jsonify([classic.serialize() for classic in classics]),200
+
+@classics.route('/<id>',methods=["GET"])
+def show(id):
+  classic = Classic.query.filter_by(id=id).first()
+  classic_data = classic.serialize()
+  return jsonify(classic=classic_data),200
