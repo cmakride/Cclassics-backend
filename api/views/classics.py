@@ -1,3 +1,4 @@
+import json
 from flask import Blueprint, jsonify, request
 from api.middleware import login_required, read_token
 
@@ -17,3 +18,8 @@ def create():
   db.session.add(classic)
   db.session.commit()
   return jsonify(classic.serialize()), 201
+
+@classics.route('/',methods=["GET"])
+def index():
+    classics = Classic.query.all()
+    return jsonify([classic.serialize() for classic in classics]),200
