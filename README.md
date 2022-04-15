@@ -1,96 +1,43 @@
-# flask-api-auth-template
+# Classics
+A place to create and view classics of every category
 
-**Warning. This template should only be used if you are building out a Flask API.**
+## [Link To The App Here](https://theclassics.netlify.app/classics "Cocktail Foundations")
 
-If you are building a Flask API back end, use the [Flask - React JWT Auth Template - Front End](https://github.com/SEI-Remote/flask-react-jwt-auth-template-frontend) to create the corresponding React App. 
+![alt text](./api/assets/readme01.png)
 
-# Setup
+![alt text](./api/assets/readme02.png)
 
-Clone the template with the command below. Be sure to replace `<name-of-your-app-here>` in the commands below with the name of your app!
+## About:
+This app uses python and flask for a backend server and react for a frontend server. 
 
-```bash
-git clone https://github.com/SEI-Remote/flask-api-auth-template.git <name-of-your-app-here>
-cd <name-of-your-app-here>
-```
+## How To Use:
+1. Register/Login to an account
+2. View, Edit, Delete your classics
 
-Once you are in the project directory:
 
-```bash
-rm -rf .git
-```
 
-Re-initialize a git repository:
+## Technologies Used:
 
-```bash
-git init
-```
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![CSS](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![Anaconda](https://img.shields.io/badge/Anaconda-%2344A833.svg?style=for-the-badge&logo=anaconda&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 
-Use the GitHub CLI to create a new project repository on GitHub:
 
-```bash
-gh repo create <name-of-your-app-here>
-```
 
-# Getting Started
 
-Create a new virtual environment for your project. The dependencies involved in this configuration of Flask (Flask API) are a bit different, so you’ll want a fresh start with this environment. 
 
-```bash
-conda create -n your_app python=3.9
-```
 
-Next, activate your virtual environment with the command below. 
 
-```bash
-conda activate your_app
-```
 
-Once the environment is active, run the following command in your terminal.
+                   
+## Future Enhancements:
 
-```bash
-pip3 install -r requirements.txt 
-```
+1. Style Improvements
+2. Picture Upload in create classic
+3. Logo add
 
-In your terminal, run the following command to create a **`.env`** in the base directory of your project.
-
-```bash
-touch .env
-```
-
-Add an **`APP_SECRET`** variable to your **`.env`** file.
-
-```
-APP_SECRET=supersecretkey
-```
-
-Next up in the **`.env`**, add a `DATABASE_URL` with the name of our project’s database.
-
-```
-DATABASE_URL='postgresql://localhost:5432/your_database'
-```
-
-Make sure your conda environment is active and hop into the `psql` shell. Please run the following commands one at a time.
-
-```
-psql
-```
-
-```
-create database your_database;
-```
-
-```
-\q
-```
-
-```bash
-python3 -m flask db init
-python3 -m flask db migrate
-python3 -m flask db upgrade
-```
-
-Run the following command to start your application. 
-
-```bash
-python3 app.py
-```# Cclassics-backend
